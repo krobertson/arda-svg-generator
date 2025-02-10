@@ -51,11 +51,11 @@ func tplEmbed(filename string) string {
 
 // tplBlankOrNum is used to return a blank string when the specified number is
 // zero, or return a formatted string when the number is set.
-func tplBlankOrNum(num int) string {
-	if num == 0 {
+func tplBlankOrNum(num *int) string {
+	if num == nil {
 		return ""
 	} else {
-		return strconv.Itoa(num)
+		return strconv.Itoa(*num)
 	}
 }
 

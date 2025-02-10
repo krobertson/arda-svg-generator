@@ -21,8 +21,8 @@ type Item struct {
 	InternalSupplier string
 	Supplier         string
 	Location         string
-	MinQty           int
-	OrderQty         int
+	MinQty           *int
+	OrderQty         *int
 	Notes            string
 	QrUrl            string
 	ImageUrl         string
@@ -186,19 +186,20 @@ func readItem(record map[string]string) (*Item, error) {
 		Department:       record["Department"],
 	}
 
-	var err error
 	if record["Min Qty"] != "" {
-		item.MinQty, err = strconv.Atoi(record["Min Qty"])
+		n, err := strconv.Atoi(record["Min Qty"])
 		if err != nil {
 			return nil, err
 		}
+		item.MinQty = &n
 	}
 
 	if record["Order Qty"] != "" {
-		item.OrderQty, err = strconv.Atoi(record["Order Qty"])
+		n, err := strconv.Atoi(record["Order Qty"])
 		if err != nil {
 			return nil, err
 		}
+		item.OrderQty = &n
 	}
 
 	return item, nil
