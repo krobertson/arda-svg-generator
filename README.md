@@ -35,7 +35,7 @@ One gotcha though, Chrome only recurses one level for remote `<image>`
 references. So each individual card needs to have child images, including its QR
 code, embedded in data URI format.
 
-### Usage
+## Usage
 
 To use this program, you will need to have Go installed. It was simply the
 language I was most comfortable with and had the majority of what I needed with
@@ -69,3 +69,10 @@ images and store them in data URI format within the `cache/` folder.
 
 To only process a subset of your items at a time, simply edit the `Items.csv`
 file. Leave the header row, as it is how it maps column positions.
+
+## Printing
+
+To print them, I simply have been loading the SVG into Chrome. Select Print,
+choose your printer and the proper layout and paper size. Under Margins, select
+None. Under Scale, select Default. By selecting no margins, no margins will be
+added to what is already specified in the document template.
